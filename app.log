@@ -1,0 +1,31 @@
+2024-11-05 08:32:14,221 INFO  werkzeug: * Running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+2024-11-05 08:32:15,003 INFO  werkzeug: 127.0.0.1 - - [05/Nov/2024 08:32:15] "GET /api/customers HTTP/1.1" 200 -
+2024-11-05 08:32:15,441 INFO  werkzeug: 127.0.0.1 - - [05/Nov/2024 08:32:15] "GET /api/customers?segment=VIP HTTP/1.1" 200 -
+2024-11-05 08:35:02,889 DEBUG root: Loading customers.csv: 9225 rows
+2024-11-05 08:35:03,102 DEBUG root: Loading products.csv: 12 rows
+2024-11-05 09:14:28,557 WARNING root: predict_churn called but churn_model.pkl not found
+2024-11-05 09:14:28,558 ERROR root: [Errno 2] No such file or directory: 'churn_model.pkl'
+2024-11-05 09:14:28,558 INFO  werkzeug: 127.0.0.1 - - [05/Nov/2024 09:14:28] "POST /api/predict_churn HTTP/1.1" 500 -
+2024-11-05 10:02:11,334 INFO  werkzeug: 127.0.0.1 - - [05/Nov/2024 10:02:11] "POST /api/recommend HTTP/1.1" 200 -
+2024-11-05 10:02:11,890 INFO  werkzeug: 127.0.0.1 - - [05/Nov/2024 10:02:11] "POST /api/recommend HTTP/1.1" 200 -
+2024-11-05 10:02:12,441 INFO  werkzeug: 127.0.0.1 - - [05/Nov/2024 10:02:12] "POST /api/recommend HTTP/1.1" 200 -
+2024-11-05 11:18:45,772 WARNING root: Slow query: get_customers took 2340ms - too many rows loaded into memory
+2024-11-05 11:18:45,773 WARNING root: Consider adding database pagination
+2024-11-05 13:45:02,109 INFO  werkzeug: 127.0.0.1 - - [05/Nov/2024 13:45:02] "GET /api/customers?page=1&per_page=50 HTTP/1.1" 200 -
+2024-11-05 14:22:31,884 ERROR root: Exception in /api/segment: KeyError 'clv'
+2024-11-05 14:22:31,885 ERROR root: Traceback (most recent call last):
+2024-11-05 14:22:31,885 ERROR root:   File "app.py", line 54, in segment_customer
+2024-11-05 14:22:31,885 ERROR root:     clv = data.get('clv', 0)
+2024-11-05 14:22:31,885 ERROR root:   File "app.py", line 57, in segment_customer
+2024-11-05 14:22:31,885 ERROR root:     if clv > 5000 and frequency > 10:
+2024-11-05 14:22:31,886 INFO  werkzeug: 127.0.0.1 - - [05/Nov/2024 14:22:31] "POST /api/segment HTTP/1.1" 500 -
+2024-11-06 09:03:19,001 INFO  werkzeug: * Restarting with stat
+2024-11-06 09:03:20,443 INFO  werkzeug: * Running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+2024-11-07 10:55:00,112 INFO  werkzeug: 127.0.0.1 - - [07/Nov/2024 10:55:00] "GET /api/customers?per_page=500 HTTP/1.1" 200 -
+2024-11-07 10:55:01,882 INFO  werkzeug: 127.0.0.1 - - [07/Nov/2024 10:55:01] "GET /api/customers?per_page=500 HTTP/1.1" 200 -
+2024-11-07 15:30:44,229 WARNING root: recommendations.py: CF matrix empty for customer 10013 (new customer), using fallback
+2024-11-07 15:30:44,230 INFO  werkzeug: 127.0.0.1 - - [07/Nov/2024 15:30:44] "POST /api/recommend HTTP/1.1" 200 -
+2024-11-08 09:00:05,888 DEBUG root: Scheduled retrain triggered (cron)
+2024-11-08 09:00:06,112 DEBUG root: model_training.py started
+2024-11-08 09:07:44,003 DEBUG root: model_training.py finished: churn AUC=0.7342, CLV MAE=184.20
+2024-11-08 09:07:44,120 INFO  root: Models saved: churn_model.pkl, clv_model.pkl

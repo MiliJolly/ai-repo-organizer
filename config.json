@@ -1,0 +1,58 @@
+{
+  "app": {
+    "name": "CustomerAI",
+    "version": "1.4.2",
+    "env": "development",
+    "debug": true,
+    "host": "0.0.0.0",
+    "port": 5000,
+    "secret_key": "CHANGE_ME_IN_PROD"
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "customers_db",
+    "pool_size": 10,
+    "timeout": 30
+  },
+  "ml": {
+    "churn_model_path": "churn_model.pkl",
+    "clv_model_path": "clv_model.pkl",
+    "segmentation_model_path": "segmentation_model.pkl",
+    "churn_threshold": 0.5,
+    "high_risk_threshold": 0.7,
+    "retrain_schedule": "0 2 * * 0",
+    "min_training_samples": 500
+  },
+  "data": {
+    "customers_csv": "customers.csv",
+    "products_csv": "products.csv",
+    "raw_export_path": "raw_customers_export.csv",
+    "predictions_output": "predictions_out.csv",
+    "reload_on_startup": true
+  },
+  "recommendations": {
+    "default_n": 5,
+    "max_n": 20,
+    "cf_weight": 0.7,
+    "content_weight": 0.3,
+    "fallback_strategy": "top_revenue"
+  },
+  "api": {
+    "rate_limit": "200/hour",
+    "pagination_default": 50,
+    "pagination_max": 500,
+    "cors_origins": ["http://localhost:3000", "http://localhost:8080"]
+  },
+  "logging": {
+    "level": "DEBUG",
+    "file": "app.log",
+    "max_bytes": 10485760,
+    "backup_count": 3
+  },
+  "_comments": {
+    "TODO_1": "move DB credentials to environment variables before prod deploy",
+    "TODO_2": "replace file-based model loading with MLflow model registry",
+    "TODO_3": "rate_limit not actually wired up yet in app.py, needs flask-limiter"
+  }
+}

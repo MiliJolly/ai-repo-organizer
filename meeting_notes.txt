@@ -1,0 +1,53 @@
+Meeting Notes - CustomerAI Weekly Sync
+Date: 2024-11-07 (Thursday)
+Attendees: Sarah (ML), Dev (Backend), Marcus (Frontend), Jake (PM), Lisa (Customer Success)
+
+=== AGENDA & NOTES ===
+
+1. Model Performance Update (Sarah)
+   - Churn model AUC dropped from 0.774 → 0.734 after adding Q3 data
+   - Likely data drift - Q3 had a big promo campaign that changed purchase behavior
+   - Action: Sarah to do feature importance analysis by next week
+   - Marcus asked if we can just retrain weekly - Sarah said yes but need to monitor
+   - Jake wants a "model health" card on the dashboard. Dev said easy to add.
+
+2. API Performance (Dev)
+   - Loading entire CSV on startup is causing 2-3 second cold start
+   - Agreed: move to Postgres before end of quarter. Dev will set up schema.
+   - For now: add Redis caching for /api/customers (Dev, by Friday)
+   - app_v2.py is still not deployed - blocked on auth discussion (see below)
+
+3. Auth / API Keys (Jake + Dev)
+   - Current app.py has NO auth, anyone on the network can hit it
+   - app_v2.py has X-API-KEY header check but key is hardcoded to env var
+   - Decision: implement proper API key table in Postgres. Dev + Sarah to spec by next week.
+   - Jake: "just ship it, we're internal-only for now" - Dev pushed back, noted risk
+
+4. Dashboard (Marcus)
+   - Chart.js doughnut for segments is working, looks good
+   - Recommendation panel needs polish - cards are too plain
+   - "View" button in customer table doesn't do anything yet (alert placeholder)
+   - Action: Marcus to build customer detail modal this sprint
+
+5. Customer Success requests (Lisa)
+   - Wants email alert when a VIP customer crosses into "At-Risk"
+   - Jake agreed this is a must-have for next milestone
+   - Dev to add background job / webhook. ETA: 2 weeks.
+   - Lisa also asked about exporting segments to CSV - Dev says "it's like 5 lines"
+
+6. Open Issues / Misc
+   - products.csv is out of date (Q4 new products not in there)
+   - Jake to get updated product list from Sales team by EOW
+   - requirements.txt has numpy pinned to 1.26.x - Sarah reminded EVERYONE not to upgrade
+   - experiment_dbscan.py in root directory - Dev to clean up repo "soon" (famous last words)
+   - temp_export.py also in root - Jake: "can you just delete it" - Dev: "after the sales meeting"
+
+=== DECISIONS ===
+- Move to Postgres: yes, Dev owns, ETA end of Q4
+- API auth: implement key table, not just env var
+- Weekly model retrain: yes, Sarah to set up cron
+- Customer detail modal: Marcus, this sprint
+- VIP→At-Risk alert: Dev, next sprint
+
+=== NEXT SYNC ===
+Thursday 2024-11-14, 10am same link

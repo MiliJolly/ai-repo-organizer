@@ -1,0 +1,13 @@
+product_id,name,category,price,revenue,description,inventory_count,active
+P001,Enterprise Analytics Suite,Software,1200.00,485000.00,Full-featured business intelligence platform with real-time dashboards and ML-powered anomaly detection. Most popular among VIP segment.,unlimited,1
+P002,Data Integration Connector Pack,Software,450.00,198000.00,Pre-built connectors for Salesforce CRM SQL databases REST APIs and cloud storage providers.,unlimited,1
+P003,Customer Insights Pro License,Software,890.00,312000.00,Annual license for customer analytics and segmentation tools. Includes AI-powered churn prediction.,unlimited,1
+P004,Professional Services - Onboarding,Services,2500.00,275000.00,10-hour guided onboarding with dedicated customer success manager. Highly rated by new enterprise clients.,unlimited,1
+P005,API Access Tier 2,Software,300.00,142000.00,Upgraded API tier with 1M calls/month higher rate limits and dedicated support channel.,unlimited,1
+P006,ML Model Customization Package,Services,3800.00,190000.00,Custom ML model training and deployment for proprietary customer data. Requires Enterprise Analytics Suite.,unlimited,1
+P007,Standard Reporting Module,Software,180.00,89000.00,Monthly and quarterly reporting templates. Export to Excel PDF and PowerPoint.,unlimited,1
+P008,Starter Pack - SMB,Software,99.00,34650.00,Entry-level plan for small businesses. Includes up to 1000 customers basic segmentation and email alerts.,unlimited,1
+P009,Data Export & Backup Service,Services,240.00,67200.00,Automated weekly data exports to S3 or GCS. Includes 90-day backup retention.,unlimited,1
+P010,Email Campaign Integration,Software,350.00,112000.00,Native integration with Mailchimp HubSpot and SendGrid. Sync segments and trigger automated campaigns.,unlimited,1
+P011,Executive Dashboard Add-on,Software,600.00,156000.00,C-suite facing dashboard with KPI scorecards and board-ready presentation export.,unlimited,1
+P012,AI Recommendation Engine,Software,1800.00,234000.00,Plug-in recommendation engine using collaborative filtering and LLM-powered personalization.,unlimited,1

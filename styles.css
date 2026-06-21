@@ -1,0 +1,141 @@
+/* styles.css - CustomerAI Dashboard
+   TODO: refactor into proper SCSS modules when we have time
+   some of this was copied from the old portal, might have dead rules */
+
+:root {
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --success: #16a34a;
+  --bg-dark: #111827;
+  --card-bg: #1f2937;
+  --text-muted: #9ca3af;
+  --border: #374151;
+}
+
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.875rem;
+}
+
+/* ---- KPI Cards ---- */
+.kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+.kpi-card:hover {
+  box-shadow: 0 0 0 2px var(--primary);
+}
+.kpi-label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ---- Cards ---- */
+.card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px;
+}
+.card-header {
+  background: rgba(255,255,255,0.03) !important;
+  border-bottom: 1px solid var(--border) !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+.card-footer {
+  background: transparent !important;
+  border-top: 1px solid var(--border) !important;
+}
+
+/* ---- Table ---- */
+.table {
+  color: #e2e8f0 !important;
+}
+.table-dark th {
+  background: #0f172a !important;
+  border-color: var(--border) !important;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+.table-hover tbody tr:hover {
+  background: rgba(37, 99, 235, 0.08) !important;
+  cursor: pointer;
+}
+.table td, .table th {
+  border-color: var(--border) !important;
+  vertical-align: middle;
+  padding: 0.5rem 0.75rem;
+}
+
+/* ---- Segment badges ---- */
+.badge-vip       { background: #7c3aed; color: #fff; }
+.badge-regular   { background: #0369a1; color: #fff; }
+.badge-at-risk   { background: #b45309; color: #fff; }
+.badge-new       { background: #166534; color: #fff; }
+.badge-unknown   { background: #374151; color: #9ca3af; }
+
+.segment-badge {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ---- Churn risk ---- */
+.risk-high   { color: var(--danger);  font-weight: 700; }
+.risk-medium { color: var(--warning); font-weight: 600; }
+.risk-low    { color: var(--success); }
+
+/* ---- Navbar ---- */
+.navbar {
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---- Form controls (dark) ---- */
+.form-select, .form-control {
+  background-color: #1e293b !important;
+  border-color: var(--border) !important;
+  color: #e2e8f0 !important;
+}
+.form-select:focus, .form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.25) !important;
+}
+
+/* ---- Recommendations ---- */
+.rec-card {
+  background: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rec-score {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* dead rule from old portal - remove later
+.sidebar { width: 240px; }
+.sidebar-item { padding: 8px 16px; }
+*/

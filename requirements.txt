@@ -1,0 +1,19 @@
+flask==3.0.3
+flask-cors==4.0.1
+pandas==2.2.1
+numpy==1.26.4
+scikit-learn==1.4.2
+scipy==1.13.0
+gunicorn==22.0.0
+python-dotenv==1.0.1
+requests==2.31.0
+pytest==8.1.1
+# added by Sarah 2024-10-22 for model training
+joblib==1.4.0
+matplotlib==3.8.4
+seaborn==0.13.2
+# needed for data export endpoint - check if we still use this
+openpyxl==3.1.2
+xlrd==2.0.1
+# NOTE: pinning to 1.26.x because 2.x breaks the segmentation model
+# numpy==2.0.0  <-- DO NOT UPGRADE until we retrain

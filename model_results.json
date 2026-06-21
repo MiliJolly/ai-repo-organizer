@@ -1,0 +1,58 @@
+{
+  "churn": {
+    "model": "RandomForestClassifier",
+    "auc": 0.7342,
+    "accuracy": 0.8105,
+    "precision": 0.6814,
+    "recall": 0.5923,
+    "f1": 0.6337,
+    "timestamp": "2024-11-08T09:07:43.884Z",
+    "n_train": 7380,
+    "n_test": 1845,
+    "features": ["recency", "frequency", "monetary", "tenure", "support_tickets", "email_opens", "last_purchase_days", "avg_order_value"],
+    "params": {
+      "n_estimators": 200,
+      "max_depth": 8,
+      "min_samples_leaf": 5,
+      "class_weight": "balanced"
+    },
+    "notes": "AUC dropped from 0.774 (Q2 data) to 0.734 after adding Q3. Possible data drift in Q3 cohort. Sarah investigating."
+  },
+  "clv": {
+    "model": "GradientBoostingRegressor",
+    "mae": 184.20,
+    "rmse": 412.55,
+    "r2": 0.8132,
+    "mape": 0.1843,
+    "timestamp": "2024-11-08T09:07:44.001Z",
+    "n_train": 7380,
+    "n_test": 1845,
+    "features": ["frequency", "monetary", "tenure", "avg_order_value", "product_categories", "email_opens"],
+    "params": {
+      "n_estimators": 150,
+      "max_depth": 4,
+      "learning_rate": 0.05
+    },
+    "notes": "Good performance. Top feature: monetary (0.48 importance), followed by tenure (0.21)."
+  },
+  "segmentation": {
+    "method": "KMeans",
+    "n_clusters": 4,
+    "timestamp": "2024-11-08T09:07:44.210Z",
+    "cluster_summary": {
+      "VIP":     {"n": 1243, "avg_clv": 8420, "avg_recency": 22, "avg_frequency": 24},
+      "Regular": {"n": 4891, "avg_clv": 1205, "avg_recency": 58, "avg_frequency": 9},
+      "At-Risk": {"n": 2104, "avg_clv": 340,  "avg_recency": 195, "avg_frequency": 4},
+      "New":     {"n": 987,  "avg_clv": 88,   "avg_recency": 8,  "avg_frequency": 2}
+    },
+    "elbow_scores": {
+      "k2": 0.41, "k3": 0.53, "k4": 0.61, "k5": 0.62, "k6": 0.63
+    },
+    "notes": "k=4 chosen by elbow - marginal improvement beyond 4 clusters. DBSCAN tried in experiments but didn't generalize well."
+  },
+  "previous_runs": [
+    {"date": "2024-10-22", "churn_auc": 0.7741, "clv_mae": 201.80, "note": "Q1+Q2 data only"},
+    {"date": "2024-09-15", "churn_auc": 0.7890, "clv_mae": 223.40, "note": "Initial model, small dataset"},
+    {"date": "2024-08-01", "churn_auc": 0.7012, "clv_mae": 310.00, "note": "Logistic regression baseline"}
+  ]
+}
